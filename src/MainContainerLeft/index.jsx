@@ -1,11 +1,21 @@
 import Form from "../Form";
-import TipBtn from "../TipButton";
+import GreenBtn from "../BtnGreen";
+import BtnWhite from "../assets/BtnWhite";
 
 function MainContainerLeft() {
   return (
     <div className="w-6/12">
+      
       <Form />
-      <TipBtn />
+      <div>
+        <h2>Select tip %</h2>
+        <GreenBtn />
+        <GreenBtn />
+        <GreenBtn />
+        <GreenBtn />
+        <GreenBtn />
+        <BtnWhite />
+      </div>
       <Form />
     </div>
   );
