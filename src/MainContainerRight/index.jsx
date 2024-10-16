@@ -1,5 +1,5 @@
 function MainContainerRight() {
-  return <div className="h-10 w-10 bg-teal-900"></div>;
+  return <div className="h-160 w-6/12 rounded-lg bg-teal-900"></div>;
 }
 
 export default MainContainerRight;
