@@ -8,6 +8,7 @@ import TipAmount from "../TipAmount";
 
 function AppContainer() {
   const [percentageAmount, setDiscountAmount] = useState(0);
+  const [inputContent, setInputContent] = useState("");
 
   function handle5PercentageCalc() {
     console.log("clicked");
@@ -15,10 +16,15 @@ function AppContainer() {
     setDiscountAmount(5);
   }
 
+  function textFromInput(e) {
+    setInputContent(e.target.value);
+    console.log(inputContent);
+  }
+
   return (
     <div className="flex w-full">
       <div className="w-6/12">
-        <Form title={"Bill"} placeholder={"$"} />
+        <Form title={"Bill"} placeholder={"$"} handleChange={textFromInput}/>
         <div className="w-11/12 mt-8 mb-8">
           <h2 className="text-sm font-medium">Select tip %</h2>
           <GreenBtn
@@ -33,6 +39,7 @@ function AppContainer() {
         </div>
         <Form title={"Number of people"} />
         <p>{percentageAmount}%</p>
+        <p>{textFromInput}</p>
       </div>
       <div className=" px-6 py-8 w-6/12 rounded-lg bg-teal-900 ">
         <div className="flex justify-between mb-8 items-center">
