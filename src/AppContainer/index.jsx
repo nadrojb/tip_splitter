@@ -11,9 +11,24 @@ function AppContainer() {
   const [inputContent, setInputContent] = useState("");
 
   function handle5PercentageCalc() {
-    console.log("clicked");
-
+    console.log("5");
     setDiscountAmount(5);
+  }
+  function handle10PercentageCalc() {
+    console.log("10");
+    setDiscountAmount(10);
+  }
+  function handle15PercentageCalc() {
+    console.log("15");
+    setDiscountAmount(15);
+  }
+  function handle25PercentageCalc() {
+    console.log("25");
+    setDiscountAmount(25);
+  }
+  function handle50PercentageCalc() {
+    console.log("50");
+    setDiscountAmount(50);
   }
 
   function textFromInput(e) {
@@ -24,22 +39,34 @@ function AppContainer() {
   return (
     <div className="flex w-full">
       <div className="w-6/12">
-        <Form title={"Bill"} placeholder={"$"} handleChange={textFromInput}/>
+        <Form title={"Bill"} placeholder={"$"} handleChange={textFromInput} />
         <div className="w-11/12 mt-8 mb-8">
           <h2 className="text-sm font-medium">Select tip %</h2>
-          <GreenBtn
-            percent={"5"}
-            handlePercentageCalc={handle5PercentageCalc}
-          />
-          <GreenBtn percent={"10"} />
-          <GreenBtn percent={"15"} />
-          <GreenBtn percent={"25"} />
-          <GreenBtn percent={"50"} />
-          <BtnWhite BtnWhiteText={"CUSTOM"} />
+          <div className="flex flex-wrap justify-between">
+            <GreenBtn
+              percent={"5"}
+              handlePercentageCalc={handle5PercentageCalc}
+            />
+            <GreenBtn
+              percent={"10"}
+              handlePercentageCalc={handle10PercentageCalc}
+            />
+            <GreenBtn
+              percent={"15"}
+              handlePercentageCalc={handle15PercentageCalc}
+            />
+            <GreenBtn
+              percent={"25"}
+              handlePercentageCalc={handle25PercentageCalc}
+            />
+            <GreenBtn
+              percent={"50"}
+              handlePercentageCalc={handle50PercentageCalc}
+            />
+            <BtnWhite BtnWhiteText={"CUSTOM"} />
+          </div>
         </div>
         <Form title={"Number of people"} />
-        <p>{percentageAmount}%</p>
-        <p>{textFromInput}</p>
       </div>
       <div className=" px-6 py-8 w-6/12 rounded-lg bg-teal-900 ">
         <div className="flex justify-between mb-8 items-center">
