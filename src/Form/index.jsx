@@ -1,16 +1,20 @@
-function Form() {
+function Form({id, title, placeholder}) {
   let labelValue = "Bill";
   return (
     <form action="" className=" ">
-      <label htmlFor="bill" className="text-sm tracking-wider font-medium">
-        Bill
+      <label
+        htmlFor="bill"
+        id="{id}"
+        className="text-sm tracking-wider font-medium"
+      >
+        {title}
       </label>
       <div className="w-full mt-1">
         <input
           type="text"
           name=""
           id="bill"
-          placeholder="$"
+          placeholder={placeholder}
           className="bg-blue-50 py-1 px-2 rounded-md w-11/12"
         />
       </div>
