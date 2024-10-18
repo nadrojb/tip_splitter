@@ -10,6 +10,7 @@ function AppContainer() {
   const [percentageAmount, setDiscountAmount] = useState(0);
   const [billInputContent, setBillInputContent] = useState("");
   const [personInputContent, setPersonInputContent] = useState("");
+  const [customTipAmount, setCustomTipAmount] = useState(0);
 
   function handle5PercentageCalc() {
     console.log("5");
@@ -40,6 +41,11 @@ function AppContainer() {
   function textFromPeopleInput(e) {
     setPersonInputContent(e.target.value);
     console.log(personInputContent);
+  }
+
+  function getCustomTipAmount(e) {
+    setCustomTipAmount(e.target.value);
+    console.log(customTipAmount);
     
   }
 
@@ -75,7 +81,7 @@ function AppContainer() {
               handlePercentageCalc={handle50PercentageCalc}
             />
             <span className="w-24 mt-2 ">
-              <Form placeholder={"CUSTOM"} />
+              <Form placeholder={"CUSTOM"} handleChange={getCustomTipAmount} />
             </span>
           </div>
         </div>
