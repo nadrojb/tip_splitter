@@ -8,7 +8,8 @@ import TipAmount from "../TipAmount";
 
 function AppContainer() {
   const [percentageAmount, setDiscountAmount] = useState(0);
-  const [inputContent, setInputContent] = useState("");
+  const [billInputContent, setBillInputContent] = useState("");
+  const [personInputContent, setPersonInputContent] = useState("");
 
   function handle5PercentageCalc() {
     console.log("5");
@@ -31,15 +32,25 @@ function AppContainer() {
     setDiscountAmount(50);
   }
 
-  function textFromInput(e) {
-    setInputContent(e.target.value);
-    console.log(inputContent);
+  function textFromBillInput(e) {
+    setBillInputContent(e.target.value);
+    console.log(billInputContent);
+  }
+
+  function textFromPeopleInput(e) {
+    setPersonInputContent(e.target.value);
+    console.log(personInputContent);
+    
   }
 
   return (
     <div className="flex w-full">
       <div className="w-6/12">
-        <Form title={"Bill"} placeholder={"$"} handleChange={textFromInput} />
+        <Form
+          title={"Bill"}
+          placeholder={"$"}
+          handleChange={textFromBillInput}
+        />
         <div className="w-11/12 mt-8 mb-8">
           <h2 className="text-sm font-medium">Select tip %</h2>
           <div className="flex flex-wrap justify-between">
@@ -63,10 +74,12 @@ function AppContainer() {
               percent={"50"}
               handlePercentageCalc={handle50PercentageCalc}
             />
-            <BtnWhite BtnWhiteText={"CUSTOM"} />
+            <span className="w-24 mt-2 ">
+              <Form placeholder={"CUSTOM"} />
+            </span>
           </div>
         </div>
-        <Form title={"Number of people"} />
+        <Form title={"Number of people"} handleChange={textFromPeopleInput} />
       </div>
       <div className=" px-6 py-8 w-6/12 rounded-lg bg-teal-900 ">
         <div className="flex justify-between mb-8 items-center">

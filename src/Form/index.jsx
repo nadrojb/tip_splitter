@@ -15,7 +15,7 @@ function Form({ id, title, placeholder, handleChange}) {
           name=""
           id="bill"
           placeholder={placeholder}
-          className="bg-blue-50 py-1 px-2 rounded-md w-11/12"
+          className="bg-blue-50 py-2 px-2 rounded-md w-11/12"
           onChange={handleChange}
         />
       </div>
