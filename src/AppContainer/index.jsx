@@ -51,15 +51,19 @@ function AppContainer() {
   }
 
   useEffect(() => {
-    let billAmount = (billInputContent * percentageAmount) / 100;
-    console.log(billAmount);
-    setTotalTip(billAmount / personInputContent);
+    if (billInputContent === "") {
+      setTotalTip("");
+    } else {
+      let billAmount = (billInputContent * percentageAmount) / 100;
+      let totalTip = (billAmount / personInputContent).toFixed(2);
+      setTotalTip(totalTip);
+    }
   }, [percentageAmount, billInputContent, personInputContent]);
 
   useEffect(() => {
-    let TotalPerPerson = billInputContent / personInputContent + tipTotal;
-    console.log(TotalPerPerson);
-  }, []);
+    if (personInputContent)
+    setPricePerPerson(billInputContent / personInputContent) + tipTotal;
+  }, [billInputContent, personInputContent, tipTotal]);
 
   return (
     <div className="flex w-full">
@@ -106,7 +110,7 @@ function AppContainer() {
         </div>
         <div className="flex justify-between mb-24 items-center">
           <AmountHeading amountTitle={"Total"} />
-          <TipAmount />
+          <TipAmount tipTotal={totalPricePerPerson} />
         </div>
         <HandleFormReset />
       </div>
