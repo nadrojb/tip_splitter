@@ -1,7 +1,7 @@
-function TipAmount() {
+function TipAmount({tipTotal}) {
   return (
     <>
-      <h1 className="text-teal-500 font-medium text-4xl">$0.00</h1>
+      <h1 className="text-teal-500 font-medium text-4xl">{tipTotal}</h1>
     </>
   );
 }

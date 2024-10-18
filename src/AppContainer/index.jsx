@@ -1,7 +1,7 @@
 import Form from "../Form";
 import GreenBtn from "../BtnGreen";
 import BtnWhite from "../assets/BtnWhite";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AmountHeading from "../AmountHeading";
 import HandleFormReset from "../ResetBtn";
 import TipAmount from "../TipAmount";
@@ -11,6 +11,8 @@ function AppContainer() {
   const [billInputContent, setBillInputContent] = useState("");
   const [personInputContent, setPersonInputContent] = useState("");
   const [customTipAmount, setCustomTipAmount] = useState(0);
+  const [tipTotal, setTotalTip] = useState(0);
+  const [totalPricePerPerson, setPricePerPerson] = useState(0);
 
   function handle5PercentageCalc() {
     console.log("5");
@@ -46,8 +48,18 @@ function AppContainer() {
   function getCustomTipAmount(e) {
     setCustomTipAmount(e.target.value);
     console.log(customTipAmount);
-    
   }
+
+  useEffect(() => {
+    let billAmount = (billInputContent * percentageAmount) / 100;
+    console.log(billAmount);
+    setTotalTip(billAmount / personInputContent);
+  }, [percentageAmount, billInputContent, personInputContent]);
+
+  useEffect(() => {
+    let TotalPerPerson = billInputContent / personInputContent + tipTotal;
+    console.log(TotalPerPerson);
+  }, []);
 
   return (
     <div className="flex w-full">
@@ -90,7 +102,7 @@ function AppContainer() {
       <div className=" px-6 py-8 w-6/12 rounded-lg bg-teal-900 ">
         <div className="flex justify-between mb-8 items-center">
           <AmountHeading amountTitle={"Tip Amount"} />
-          <TipAmount />
+          <TipAmount tipTotal={tipTotal} />
         </div>
         <div className="flex justify-between mb-24 items-center">
           <AmountHeading amountTitle={"Total"} />
