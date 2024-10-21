@@ -1,7 +1,7 @@
-function TipAmount({tipTotal}) {
+function TipAmount({displayCaluculationTotal}) {
   return (
     <>
-      <h1 className="text-teal-500 font-medium text-4xl">${tipTotal}</h1>
+      <h1 className="text-teal-500 font-medium text-4xl">${displayCaluculationTotal}</h1>
     </>
   );
 }
